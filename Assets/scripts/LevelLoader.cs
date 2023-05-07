@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
+    AcceptState accept;
     // Start is called before the first frame update
     void Start()
     {
-        
+        accept = GetComponent<AcceptState>();
     }
 
     // Update is called once per frame
@@ -17,6 +18,6 @@ public class LevelLoader : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        accept.enabled = false;
     }
 }
